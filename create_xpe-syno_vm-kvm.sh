@@ -41,7 +41,7 @@ SynoBoot=/mnt/synology
 # Optionnel :
 # - Numéro de série à mettre dans le fichier grub.cfg
 # - Laisser à la valeur 0 (zéro) sinon
-MySerialNumber=1230LWN010284
+MySerialNumber=xxxxxxxxxx
 
 # Optionnel :
 # - timeout à mettre dans le fichier grub.cfg

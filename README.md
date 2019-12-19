@@ -12,7 +12,6 @@ Lien vers les fichiers img   : https://xpenology.com/forum/topic/8024-liens-vers
 Version du DSM correspondant : DSM_DS3615xs_15217.pat
 Lien vers le fichier DSM     : https://archive.synology.com/download/DSM/release/6.1.4/15217/DSM_DS3611xs_15217.pat
 
-
 Pré-requis pour la VM
  - kvm installé et fonctionnel
  - 10Go minimum pour le disque (LV) correspondant au DSM (sinon erreur lors de l'installation)

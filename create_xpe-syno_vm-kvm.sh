@@ -1,8 +1,6 @@
- #!/usr/bin/env bash
+#!/usr/bin/env bash
 
 # Script de création d'une VM sous KVM pour xpesynology
-# Version : 00
-# @DJR le : 17/12/19
 
 # Nom du VG utilisé pour la création des VM
 VGName=lvm-kvm
@@ -30,34 +28,32 @@ LVBootFullName=/dev/$VGName/$LVBootName
 # Nom du LV pour le DSM (system)
 LVDSMName=Syno_system.6.2-test
 
-# Taille du LV pour le  DSM 
-# NB : 10Go mini 
+# Taille du LV pour le DSM
+# NB : 10Go mini sinon lors de l'installation
 LVDSMSize=10G
 
 # Full name pour le LV DSM
 LVDSMFullName=/dev/$VGName/$LVDSMName
 
 # Point de montage pour la partition contenant le fichier grub.cfg
-# qui sera modifé
 SynoBoot=/mnt/synology
 
 # Optionnel :
-#  - Numéro de série à mettre dans le fichier grub.cfg
-#  - Laisser à la valeur 0 (zéro) sinon
+# - Numéro de série à mettre dans le fichier grub.cfg
+# - Laisser à la valeur 0 (zéro) sinon
 MySerialNumber=1230LWN010284
 
 # Optionnel :
-#  - timeout à mettre dans le fichier grub.cfg
-#  - Laisser à la valeur 0 (zéro) sinon
+# - timeout à mettre dans le fichier grub.cfg
+# - Laisser à la valeur 0 (zéro) sinon
 MyTimeOut=3
 
 # Optionnel :
-#  - Passer le boot en mode verbeux 
-#  - Laisser à la valeur 0 (zéro) sinon
+# - Passer le boot en mode verbeux
+# - Laisser à la valeur 0 (zéro) sinon
 Verbose=1
 
-# Paramètres pour la création de la VM
-
+Exemple de paramètres utilisés pour la création de la VMExemple de paramètres utilisés pour la création de la VM
 # Nbr de CPU
 VMcpus="2"
 
@@ -70,18 +66,16 @@ VMOStype="linux"
 # Nom de l'OS
 VMOSvariant="archlinux"
 
-# Disque USB --> BootLoader 
+# Disque USB --> BootLoader
 VMBootDisk="path=$LVBootFullName,bus=usb,target.dev=sdb,boot.order=1"
 
 # Disque pour le DSM (system)
 VMDSMDisk="path=$LVDSMFullName,bus=sata,target.dev=sda,address.type=drive,address.controller=0,address.bus=0,address.target=0,address.unit=0"
-# VMDSMDisk="path=$LVDSMFullName,bus=sata,target.dev=sda,address.type=drive"
 
 # Remote display : VNC, spice, ...
 VMgraphics="spice"
 
-# Conf Network : en bridge chez moi
-# modèle de la carte 
+# Conf Network : en bridge chez moi modèle de la carte
 VMnetwork="network=bridge,model.type=e1000e"
 
 #-----------------------------------------------------------------------
